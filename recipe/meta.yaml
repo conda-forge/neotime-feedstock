@@ -1,6 +1,6 @@
 {% set name = "neotime" %}
-{% set version = "1.7.0" %}
-{% set sha256 = "e4655fba91c03d741fe830c9623cb6d3422bc5b568948911ed75a6b218ab2ef4" %}
+{% set version = "1.7.1" %}
+{% set sha256 = "f64704800d40023035bdfaf23746ddecb9790ec973bfad5c704c809aa8e0bec5" %}
 
 package:
   name: {{ name|lower }}
