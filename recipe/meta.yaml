@@ -19,6 +19,10 @@ requirements:
   host:
     - python
     - pip
+    # the run requirements are needed at build time since setup.py imports
+    # neotime to determine the package version
+    - pytz
+    - six
   run:
     - python
     - pytz
