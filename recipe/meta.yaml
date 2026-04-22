@@ -7,28 +7,30 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
   noarch: python
-  number: 0
-  script: python -m pip install --no-deps --ignore-installed .
+  number: 1
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
-    - python
+    - python {{ python_min }}
     - pip
     # the run requirements are needed at build time since setup.py imports
     # neotime to determine the package version
     - pytz
     - six
   run:
-    - python
+    - python >={{ python_min }}
     - pytz
     - six
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - neotime
 
